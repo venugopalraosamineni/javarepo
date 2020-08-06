@@ -1,0 +1,44 @@
+Go to Services > Messaging > JMS Servers.
+
+weblogic jms queue spring
+
+1. Create JMS server
+
+Click New.
+Enter name MyJMSServer. Click Next.
+Leave Persistent Store to none. Click Next.
+Choose AdminServer (or whatever your server is named) as target. Click Finish.
+2. Create JMS module
+
+Go to Services > Messaging > JMS Modules. Click New.
+Enter name MyJMSModule. Click Next.
+Check AdminServer (or the same one you used for JMS server) as target. Click Next.
+Uncheck Would you like to add resources to this JMS system module?.
+Click Finish.
+3. Create a SubDeployment
+
+Services > Messaging > JMS Modules. Click MyJMSModule.
+Go to SubDeployments tab and click New. Enter name MyJMSSubdeployment. Click Next.
+Select MyJMSServer as target (jms server we created earlier) and click Finish.
+4. Create a JMS Connection Factory
+
+Go to Services > Messaging > JMS Modules.
+Click MyJMSModule. Go to Configuration tab. Click New. Choose Connection Factory. Click Next.
+Enter name MyJMSConnectionFactory. Enter jndi name jms/MyJMSConnectionFactory. Leave other options default. Click Next.
+If not already selected, choose AdminServer as target. Click Finish.
+5. Create a WebLogic JMS Queue
+
+Go to Services > Messaging > JMS Modules.
+Click MyJMSModule. Go to Configuration tab. Click New. Choose Connection Factory. Click Next.
+Enter name MyJMSQueue. Enter jndi name jms/MyJMSQueue. Choose none for template. Click Next.
+Choose MyJMSSubdeployment at subdeployments. Click Finish.
+
+
+
+=======For Lombok ============================================================================================
+Download and Install Lombok in your System. (At the time of installation it will ask for IDE path.)
+Then re-start the IDE.
+JDK Version --> 1.6 or above
+Spring Version --> 2.1.4 or above
+
+
